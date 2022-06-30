@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/puppet/static/css/main.69d2bb7b.css",
+    "main.js": "/puppet/static/js/main.3c9964e8.js",
+    "index.html": "/puppet/index.html",
+    "main.69d2bb7b.css.map": "/puppet/static/css/main.69d2bb7b.css.map",
+    "main.3c9964e8.js.map": "/puppet/static/js/main.3c9964e8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69d2bb7b.css",
+    "static/js/main.3c9964e8.js"
+  ]
+}
