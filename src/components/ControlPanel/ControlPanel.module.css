@@ -1,0 +1,4 @@
+.wrap {
+    composes: block from "./commonStyles.module.css";
+    width: 360px;
+}

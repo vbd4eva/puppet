@@ -1,0 +1,109 @@
+.markBlock {
+    composes: block from '../../commonStyles.module.css';
+}
+
+.row {
+    width: 100%;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title {
+    composes: row;
+}
+
+.rotation {
+    composes: markBlock;
+    composes: flex;
+
+    justify-content: space-around;
+    align-items: center;
+}
+
+.iconBtn {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: transparent;
+    outline: solid 0.5rem var(--color-grey);
+    ;
+}
+
+.iconBtn:hover {
+    background-color: var(--color-grey);
+}
+
+.indicator {
+    position: relative;
+
+    width: 7rem;
+    height: 7rem;
+    font-size: 2.5rem;
+    cursor: pointer;
+    border-radius: 50%;
+    outline: solid 0.5rem var(--color-grey);
+}
+
+.indicator::after {
+
+    content: "\00B0";
+    display: block;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    text-align: right;
+}
+
+.indicator:focus-within {
+    background-color: var(--color-grey);
+
+}
+
+.PieChart {
+    width: inherit;
+    stroke: var(--color-grey)
+}
+
+.indicator:focus-within .PieChart {
+    stroke: white
+}
+
+
+.inputNumber {
+    -moz-appearance: textfield;
+    width: calc(100% - 1rem);
+    height: calc(100% - 1rem);
+    position: absolute;
+    top: 0.5rem;
+    left: 0;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    font-size: inherit;
+    text-align: center;
+    background-color: transparent;
+
+}
+
+.inputNumber:focus-visible {
+    outline: none;
+}
+
+
+
+.inputNumber::-webkit-outer-spin-button,
+.inputNumber::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.range {
+    composes: row;
+    padding: 24px 12px;
+}

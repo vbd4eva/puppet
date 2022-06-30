@@ -1,0 +1,3 @@
+.wrap {
+    composes: block from '../../commonStyles.module.css';
+}
