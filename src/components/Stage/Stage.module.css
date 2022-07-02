@@ -2,7 +2,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
 
     background-color: #ccc;
 
@@ -10,18 +10,15 @@
 }
 
 .scene {
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-
-    width: 400px;
-    height: 400px;
-
-    background: #4caf50;
+    width: 100%;
+    height: 100%;
+    background: #00968896;
 }
 
 .controller {
     position: absolute;
+    bottom: 0px;
+    right: 0px;
     z-index: 1;
 
     background-color: #2196f3;

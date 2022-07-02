@@ -7,6 +7,7 @@ import s from "./Stage.module.css";
 import BtnIconToggle from "../Buttons/BtnIconToggle/BtnIconToggle";
 import { useState } from "react";
 import SceneControlPanel from "./SceneControlPanel/SceneControlPanel";
+import ZoomAdj from "../ControlPanel/ZoomAdj/ZoomAdj";
 
 function Stage({ width = 300, height = 350, children }) {
   // const style = {
@@ -19,10 +20,12 @@ function Stage({ width = 300, height = 350, children }) {
 
   const [left, setLeft] = useState(0);
   const [bottom, setBottom] = useState(0);
+  const [zoom, setZoom] = useState(1);
 
   const sceneStyle = {
     left,
     bottom,
+    transform: `scale3d(${zoom}, ${zoom}, ${zoom})`,
   };
 
   function changeScenePosition([x, y]) {
@@ -31,18 +34,18 @@ function Stage({ width = 300, height = 350, children }) {
     if (y !== bottom) setBottom(y);
   }
 
-  function changeSceneZoom(zoom) {
-    console.log("changeSceneZoom");
-    console.log(zoom);
+  function changeSceneZoom(newZoom) {
+    if (newZoom === zoom) return;
+    // console.log("changeSceneZoom");
+    // console.log(zoom);
+    setZoom(newZoom);
   }
 
   return (
     <div className={s.container}>
-      <div className={s.scene} style={sceneStyle}>
-        {children}
-      </div>
       <div className={s.controller}>
-        <div className={s.toggle}>
+        <ZoomAdj value={zoom} max={5} onChange={changeSceneZoom} />
+        {/* <div className={s.toggle}>
           <BtnIconToggle
             onToggle={() => {
               setShowAdjustment(!showAdjustment);
@@ -63,7 +66,11 @@ function Stage({ width = 300, height = 350, children }) {
               onZoomChange={changeSceneZoom}
             />
           </div>
-        )}
+        )} */}
+      </div>
+
+      <div className={s.scene} style={sceneStyle}>
+        {children}
       </div>
     </div>
   );
