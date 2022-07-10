@@ -1,9 +1,0 @@
-.wrap {
-    --color-Bone-basic: mediumvioletred;
-    cursor: pointer;
-}
-
-
-.wrap:hover {
-    --color-Bone-basic: red;
-}

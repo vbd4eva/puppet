@@ -1,9 +1,17 @@
 {
+  "initialBody": {
+    "id": null,
+    "type": "area",
+    "title": "Прототип об'єкта Тіла",
+    "position": { "left": "50%", "bottom": "50%" },
+    "size": { "width": 0, "height": 0 },
+    "rotation": 0
+  },
   "body1": {
     "id": "body1",
     "type": "area",
     "title": "Прототип тіла об'єкта",
-    "position": { "left": "50%", "bottom": "50%" },
+    "position": { "left": "16%", "bottom": "16%" },
     "size": { "width": 0, "height": 0 },
     "rotation": 0,
     "childs": ["line1"]

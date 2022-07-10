@@ -1,27 +1,28 @@
-import React from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
 
-import { TbAdjustments, TbAdjustmentsOff } from "react-icons/tb";
+import { TbCirclePlus, TbCircleOff } from "react-icons/tb";
 
 import s from "./Stage.module.css";
 import BtnIconToggle from "../Buttons/BtnIconToggle/BtnIconToggle";
-import { useState } from "react";
+
 import SceneControlPanel from "./SceneControlPanel/SceneControlPanel";
 import ZoomAdj from "../ControlPanel/ZoomAdj/ZoomAdj";
 
-// import bodies from "./bodies.json";
-import { getBodiesArr } from "./data/dataHandler.js";
+import {
+  getBodiesArr,
+  getObjectBodyInitialData,
+  setTemporaryBody,
+  clearTemporaryObjectsData,
+} from "./data/dataHandler.js";
 
 import Object from "./Object/Object";
 
-function Stage({ width = 300, height = 350, children }) {
-  // const style = {
-  //   width,
-  //   height,
-  //   backgroundColor: "#ccc",
-  //   position: "relative",
-  // };
+function Stage({ width = 300, height = 350, selectHahdler, children }) {
   const [showAdjustment, setShowAdjustment] = useState(false);
+  const [bodies, setBodies] = useState(() => getBodiesArr());
+
+  const [temporaryBodyId, setTemporaryBodyId] = useState(null);
 
   const [left, setLeft] = useState(0);
   const [bottom, setBottom] = useState(0);
@@ -46,16 +47,46 @@ function Stage({ width = 300, height = 350, children }) {
     setZoom(newZoom);
   }
 
+  function makesNewBodyMenuToggle(active) {
+    if (active) {
+      const body = getObjectBodyInitialData();
+      setTemporaryBody(body);
+      setTemporaryBodyId(body.id);
+      return;
+    }
+
+    clearTemporaryObjectsData();
+    setTemporaryBodyId(null);
+  }
+
   return (
     <div className={s.container}>
       <div className={s.scene} style={sceneStyle}>
-        {getBodiesArr().map((bodyId) => (
-          <Object key={bodyId} id={bodyId} />
-        ))}
+        {bodies &&
+          bodies.map((bodyId) => (
+            <Object key={bodyId} id={bodyId} onSelect={selectHahdler} />
+          ))}
+
+        {temporaryBodyId && (
+          <Object
+            key={temporaryBodyId}
+            id={temporaryBodyId}
+            temporary
+            onSelect={selectHahdler}
+          />
+        )}
 
         {children}
       </div>
       <div className={s.controller}>
+        <BtnIconToggle
+          onToggle={makesNewBodyMenuToggle}
+          labelOn="Show new Body creation menu"
+          labelOff="Hide new Body creation menu"
+        >
+          <TbCirclePlus key="off" size="1em" />
+          <TbCircleOff key="on" size="1rem" />
+        </BtnIconToggle>
         <ZoomAdj value={zoom} max={5} onChange={changeSceneZoom} />
         {/* <div className={s.toggle}>
           <BtnIconToggle
@@ -88,6 +119,7 @@ Stage.propTypes = {
   width: PropTypes.number,
   height: PropTypes.number,
   onChoosingElement: PropTypes.func,
+  selectHahdler: PropTypes.func.isRequired,
   children: PropTypes.node,
 };
 export default Stage;
