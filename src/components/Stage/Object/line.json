@@ -1,0 +1,10 @@
+{
+  "id": "line1",
+  "type": "line",
+  "title": "Лінія",
+  "position": { "left": "53%", "bottom": "50%" },
+  "width": 0,
+  "height": 0,
+  "rotation": 0,
+  "childs": ["area2"]
+}

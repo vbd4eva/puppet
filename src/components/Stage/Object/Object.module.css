@@ -1,0 +1,51 @@
+.objects {
+    position: absolute;
+}
+
+.point::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 4px;
+    box-sizing: content-box;
+    border-radius: 50%;
+    background: #ffffff50;
+    outline: 1px solid;
+}
+
+.area {
+    composes: objects;
+    composes: point;
+    color: darkviolet;
+}
+
+.area::after {
+
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.line {
+    composes: objects;
+    composes: point;
+    transform-origin: left center;
+    color: crimson;
+    background-color: currentColor;
+}
+
+.line::after {
+    top: -4px;
+    left: -4px;
+}
+
+.childBox {
+    composes: objects;
+}
+
+.line>.childBox {
+    right: 0;
+    top: 1px;
+}

@@ -1,0 +1,89 @@
+{
+  "body1": {
+    "id": "body1",
+    "type": "area",
+    "title": "Прототип тіла об'єкта",
+    "position": { "left": "50%", "bottom": "50%" },
+    "size": { "width": 0, "height": 0 },
+    "rotation": 0,
+    "childs": ["line1"]
+  },
+  "body2": {
+    "id": "body2",
+    "type": "area",
+    "title": "Прототип 2 тіла об'єкта",
+    "position": { "left": "40%", "bottom": "40%" },
+    "size": { "width": 0, "height": 0 },
+    "rotation": 0,
+    "childs": ["area2", "line2"]
+  },
+  "body3": {
+    "id": "body3",
+    "type": "area",
+    "title": "Прототип 2 тіла об'єкта",
+    "position": { "left": "30%", "bottom": "30%" },
+    "size": { "width": 0, "height": 0 },
+    "rotation": 0,
+    "childs": ["line3"]
+  },
+  "line1": {
+    "id": "line1",
+    "type": "line",
+    "title": "Лінія",
+    "position": { "left": "20px", "bottom": 0 },
+    "size": { "width": "60px", "height": "1px" },
+    "rotation": 20,
+    "childs": ["area1"]
+  },
+  "line2": {
+    "id": "line2",
+    "type": "line",
+    "title": "Лінія",
+    "position": { "left": 0, "bottom": 0 },
+    "size": { "width": "60px", "height": "1px" },
+    "rotation": -15
+  },
+  "line3": {
+    "id": "line3",
+    "type": "line",
+    "title": "Лінія",
+    "position": { "left": "-10px", "bottom": "-10px" },
+    "size": { "width": "60px", "height": "1px" },
+    "rotation": 0,
+    "childs": ["line3Child1"]
+  },
+  "line3Child1": {
+    "id": "line3Child1",
+    "type": "line",
+    "title": "Лінія",
+    "position": { "left": 0, "bottom": 0 },
+    "size": { "width": "60px", "height": "1px" },
+    "rotation": 0,
+    "childs": ["line3Child2"]
+  },
+  "line3Child2": {
+    "id": "line3Child2",
+    "type": "line",
+    "title": "Лінія",
+    "position": { "left": 0, "bottom": 0 },
+    "size": { "width": "60px", "height": "1px" },
+    "rotation": 0
+  },
+  "area1": {
+    "id": "area1",
+    "type": "area",
+    "title": "Прототип area1 тіла об'єкта",
+    "position": { "left": 0, "bottom": 0 },
+    "size": { "width": 0, "height": 0 },
+    "rotation": 0
+  },
+  "area2": {
+    "id": "area2",
+    "type": "area",
+    "title": "Прототип area2 тіла об'єкта",
+    "position": { "left": "20px", "bottom": "8px" },
+    "size": { "width": 0, "height": 0 },
+    "rotation": 0,
+    "childs": ["line2"]
+  }
+}

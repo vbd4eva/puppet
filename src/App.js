@@ -6,8 +6,9 @@ import Stage from "./components/Stage/Stage";
 import Body from "./components/Body/Body";
 import Element from "./components/Element/Element";
 import FirstOne from "./components/Body/puppets/FirstOne/FirstOne";
-import s from "./App.module.css";
 import BtnChangeNumber from "./components/Buttons/BtnChangeNumber/BtnChangeNumber";
+
+import s from "./App.module.css";
 
 export default function App() {
   useEffect(() => {
@@ -54,8 +55,8 @@ export default function App() {
 
   return (
     <div ref={refRootContainer} className={s.root}>
-      <BtnChangeNumber />
-      <hr />
+      {/* <BtnChangeNumber />
+      <hr /> */}
       <div className={s.stage}>
         <Stage>
           {/* <FirstOne setSelectedElement={setSelectedElement} /> */}

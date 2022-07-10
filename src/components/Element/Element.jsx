@@ -44,8 +44,8 @@ function Element({
       left: [left, setLeft],
     };
 
-    console.log("model");
-    console.log(elModel.current);
+    // console.log("model");
+    // console.log(elModel.current);
   }, [name, rotation, width, top, left]);
 
   function getElementModel() {

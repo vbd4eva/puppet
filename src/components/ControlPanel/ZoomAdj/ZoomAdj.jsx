@@ -33,28 +33,26 @@ function ZoomAdj({ value, max, min = 0.1, onChange }) {
 
   return (
     <div>
-      <p>
-        <span>Zoom</span>
-        <> x</>
-        <span aria-label="Zoom value">{zoom}</span>
-        <span>
-          {zoom === max && "is maximal value"}
-          {zoom === min && "is minnimal value"}
-        </span>
-        <div>
-          <button type="button" onClick={decrement} disabled={zoom === min}>
-            -
-          </button>
+      <span>Zoom</span>
+      <> x</>
+      <span aria-label="Zoom value">{zoom}</span>
+      <span>
+        {zoom === max && "is maximal value"}
+        {zoom === min && "is minnimal value"}
+      </span>
+      <div>
+        <button type="button" onClick={decrement} disabled={zoom === min}>
+          -
+        </button>
 
-          <button type="button" onClick={reset}>
-            reset
-          </button>
+        <button type="button" onClick={reset}>
+          reset
+        </button>
 
-          <button type="button" onClick={increment} disabled={zoom === max}>
-            +
-          </button>
-        </div>
-      </p>
+        <button type="button" onClick={increment} disabled={zoom === max}>
+          +
+        </button>
+      </div>
     </div>
   );
 }

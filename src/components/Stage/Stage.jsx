@@ -9,6 +9,11 @@ import { useState } from "react";
 import SceneControlPanel from "./SceneControlPanel/SceneControlPanel";
 import ZoomAdj from "../ControlPanel/ZoomAdj/ZoomAdj";
 
+// import bodies from "./bodies.json";
+import { getBodiesArr } from "./data/dataHandler.js";
+
+import Object from "./Object/Object";
+
 function Stage({ width = 300, height = 350, children }) {
   // const style = {
   //   width,
@@ -43,6 +48,13 @@ function Stage({ width = 300, height = 350, children }) {
 
   return (
     <div className={s.container}>
+      <div className={s.scene} style={sceneStyle}>
+        {getBodiesArr().map((bodyId) => (
+          <Object key={bodyId} id={bodyId} />
+        ))}
+
+        {children}
+      </div>
       <div className={s.controller}>
         <ZoomAdj value={zoom} max={5} onChange={changeSceneZoom} />
         {/* <div className={s.toggle}>
@@ -67,10 +79,6 @@ function Stage({ width = 300, height = 350, children }) {
             />
           </div>
         )} */}
-      </div>
-
-      <div className={s.scene} style={sceneStyle}>
-        {children}
       </div>
     </div>
   );
