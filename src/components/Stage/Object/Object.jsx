@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { getData } from "../data/dataHandler.js";
 import s from "./Object.module.css";
 
-function Object({ id, temporary = false, onSelect, children }) {
+function Object({ id, temporary = false, body = false, onSelect, children }) {
   const obj = useMemo(() => getData(id, temporary), [id, temporary]);
 
   // title,
@@ -21,7 +21,7 @@ function Object({ id, temporary = false, onSelect, children }) {
   const [width, setWidth] = useState(obj.size.width);
   const [height, setHeight] = useState(obj.size.height);
   const [rotation, setRotation] = useState(obj.rotation);
-  const [childs, setChilds] = useState(obj.childs);
+  const [childs, setChilds] = useState(obj.childs || null);
 
   useEffect(() => {
     temporary && onSelect(getElementModel);
@@ -33,6 +33,8 @@ function Object({ id, temporary = false, onSelect, children }) {
 
   const getElementModel = () => ({
     id,
+    temporary,
+    body,
     title: [title, setTitle],
     type: [type, setType],
     left: [left, setLeft],

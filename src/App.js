@@ -69,7 +69,7 @@ export default function App() {
       </div>
       <div className={s.panel}>
         {selectedElementId && (
-          <ControlPanel getElementModel={getSelectedElement.current} />
+          <ControlPanel selectedElementModel={getSelectedElement.current()} />
         )}
       </div>
     </div>

@@ -72,6 +72,7 @@ function Stage({ width = 300, height = 350, selectHahdler, children }) {
             key={temporaryBodyId}
             id={temporaryBodyId}
             temporary
+            body
             onSelect={selectHahdler}
           />
         )}

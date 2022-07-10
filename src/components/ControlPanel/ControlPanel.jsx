@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import PropTypes from "prop-types";
 
 import s from "./ControlPanel.module.css";
@@ -8,16 +8,21 @@ import TitleManager from "./paramsManagers/TitleManager/TitleManager";
 import RotationManager from "./paramsManagers/RotationManager/RotationManager";
 import WidthManager from "./paramsManagers/WidthManager/WidthManager";
 
-function ControlPanel({ getElementModel }) {
+function ControlPanel({ selectedElementModel }) {
   const [editParam, setEditParam] = useState(null);
 
-  const elementModel = getElementModel();
   const {
     id,
+    temporary,
+    body,
+    type: [type],
     title: [title, setTitle],
+    left: [left, setLeft],
+    bottom: [bottom, setBottom],
     rotation: [rotation, setRotation],
     width: [width, setWidth],
-  } = elementModel;
+    childs: [childs, setChilds],
+  } = selectedElementModel;
 
   // useEffect(() => {
   //   setEditParam(null);
@@ -34,8 +39,8 @@ function ControlPanel({ getElementModel }) {
     if (!editParam) return;
     return {
       id,
-      value: elementModel[editParam][0],
-      onChange: elementModel[editParam][1],
+      value: selectedElementModel[editParam][0],
+      onChange: selectedElementModel[editParam][1],
     };
   };
 
@@ -50,9 +55,15 @@ function ControlPanel({ getElementModel }) {
       <p>Control Panel</p>
       <InfoBlock
         id={id}
+        temporary
+        body
+        type={type}
         title={title}
+        left={left}
+        bottom={bottom}
         rotation={rotation}
         width={width}
+        childs={childs}
         onEditParamChoice={editParamChoiceHandler}
       />
     </div>
@@ -60,7 +71,7 @@ function ControlPanel({ getElementModel }) {
 }
 
 ControlPanel.propTypes = {
-  getElementModel: PropTypes.func.isRequired,
+  selectedElementModel: PropTypes.object.isRequired,
 };
 
 export default ControlPanel;

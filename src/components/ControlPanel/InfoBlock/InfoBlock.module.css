@@ -1,4 +1,14 @@
-.list {
+.block {
+    composes: block from "../commonStyles.module.css";
+}
+
+.properties,
+.title,
+.params {
+    composes: block from "../commonStyles.module.css";
+}
+
+.block .list {
     padding-left: 3rem;
 }
 
